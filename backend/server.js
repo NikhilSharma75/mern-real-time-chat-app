@@ -16,8 +16,9 @@ const __dirname = path.resolve();
 
 
 const PORT = process.env.PORT || 5000 ;
+const FRONTEND_URL = process.env.FRONTEND_URL;
 app.use(cors({
-    origin: "https://real-time-chat-app-5yys.onrender.com/",
+    origin: "FRONTEND_URL" , // replace with your frontend URL
     credentials: true,
 })); 
 app.use(express.json()); // to parse the incoming requests  with json payloads (from req.body)
