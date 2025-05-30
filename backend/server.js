@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import path from "path"
+import cors from "cors";
 import messageRoutes from "./routes/message.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import authRoutes from "./routes/auth.routes.js"
@@ -15,7 +16,10 @@ const __dirname = path.resolve();
 
 
 const PORT = process.env.PORT || 5000 ;
-
+app.use(cors({
+    origin: "https://real-time-chat-app-5yys.onrender.com/",
+    credentials: true,
+})); 
 app.use(express.json()); // to parse the incoming requests  with json payloads (from req.body)
 
 app.use(cookieParser());
